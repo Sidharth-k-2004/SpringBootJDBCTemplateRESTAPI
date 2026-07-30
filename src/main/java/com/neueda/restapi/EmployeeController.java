@@ -122,4 +122,16 @@ public class EmployeeController {
                 )
         );
     }
+
+    @GetMapping("/check")
+    public ResponseEntity<Map<String, Object>> check() {
+        Check check = new Check();
+        String checkResult = check.getCheck();
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", "Check endpoint called successfully");
+        response.put("data", checkResult);
+
+        return ResponseEntity.ok(response);
+    }
 }
