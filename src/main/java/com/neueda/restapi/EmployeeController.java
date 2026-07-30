@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.neueda.restapi.Check;
 
 @RestController
 @RequestMapping("/api/v1/employee")
@@ -125,14 +124,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/check")
-    public ResponseEntity<Map<String, Object>> check() {
-        Check check = new Check();
-        String checkResult = check.getCheck();
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("message", "Check endpoint called successfully");
-        response.put("data", checkResult);
-
-        return ResponseEntity.ok(response);
+    public String check() {
+        return "hiii this is check";
     }
 }
